@@ -1,3 +1,3 @@
-import streamlit as st
+from src.delivery.streamlit.components.title import title
 
-st.title("Hello, world!")
+title()
