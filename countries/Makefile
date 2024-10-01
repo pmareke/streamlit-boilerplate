@@ -6,8 +6,8 @@ help:  ## Show this help.
 		awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 
 .PHONY: build
-build: ## Install the app packages
-	docker build -t fastapi-boilerplate .
+build: ## Generate Docker image
+	docker build -t streamlit .
 
 .PHONY: install
 install: ## Install the app packages
