@@ -51,6 +51,9 @@ test-unit: ## Run unit tests
 test-integration: ## Run integration tests
 	poetry run pytest -n auto tests/integration -ra
 
+.PHONY: test
+test: test-unit test-integration ## Run all the tests
+
 .PHONY: watch
 watch: ## Run all the tests in watch mode
 	poetry run ptw --runner "pytest -n auto tests -ra"
