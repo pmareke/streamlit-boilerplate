@@ -4,10 +4,11 @@ from src.delivery.streamlit.components.text import Text
 from src.infrastructure.countries.http_countries_client import HttpCountriesClient
 
 header = Header()
+header.render("Countries")
+
 countries_client = HttpCountriesClient()
 countries_list = CountriesList(countries_client)
-text = Text()
-
-header.render("Countries")
 countries_list.render()
+
+text = Text()
 text.render("Made by @pmareke")
