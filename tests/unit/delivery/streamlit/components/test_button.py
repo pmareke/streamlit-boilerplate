@@ -1,3 +1,4 @@
+from expects import equal, expect
 from streamlit.testing.v1 import AppTest
 
 
@@ -7,4 +8,4 @@ class TestButtonComponent:
 
         at = app.run()
 
-        assert at.button[0].label == "any-button"
+        expect(at.button[0].label).to(equal("any-button"))

@@ -1,3 +1,5 @@
+from expects import be_none, expect
+
 from src.infrastructure.countries.http_countries_client import HttpCountriesClient
 
 
@@ -7,4 +9,4 @@ class TestCountriesClientIntegration:
 
         countries = countries_client.all(limit=1)
 
-        assert countries[0].name != ""
+        expect(countries[0].name).not_to(be_none)

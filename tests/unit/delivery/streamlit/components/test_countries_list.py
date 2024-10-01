@@ -1,3 +1,4 @@
+from expects import equal, expect
 from streamlit.testing.v1 import AppTest
 
 
@@ -8,4 +9,4 @@ class TestCountriesListComponent:
         at = app.run()
         at.button[0].click().run()
 
-        assert at.text[0].value == "Country: Argentina, Capital: Buenos Aires"
+        expect(at.text[0].value).to(equal("Country: Argentina, Capital: Buenos Aires"))

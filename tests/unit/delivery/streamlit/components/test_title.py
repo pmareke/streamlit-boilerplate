@@ -1,3 +1,4 @@
+from expects import equal, expect
 from streamlit.testing.v1 import AppTest
 
 
@@ -8,3 +9,4 @@ class TestTitleComponent:
         at = app.run()
 
         assert at.title[0].value == "any-title"
+        expect(at.title[0].value).to(equal("any-title"))

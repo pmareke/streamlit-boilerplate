@@ -1,3 +1,4 @@
+from expects import equal, expect
 from streamlit.testing.v1 import AppTest
 
 
@@ -8,3 +9,4 @@ class TestHeaderComponent:
         at = app.run()
 
         assert at.header[0].value == "any-header"
+        expect(at.header[0].value).to(equal("any-header"))

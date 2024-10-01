@@ -224,6 +224,16 @@ files = [
 testing = ["hatch", "pre-commit", "pytest", "tox"]
 
 [[package]]
+name = "expects"
+version = "0.9.0"
+description = "Expressive and extensible TDD/BDD assertion library for Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "expects-0.9.0.tar.gz", hash = "sha256:419902ccafe81b7e9559eeb6b7a07ef9d5c5604eddb93000f0642b3b2d594f4c"},
+]
+
+[[package]]
 name = "gitdb"
 version = "4.0.11"
 description = "Git Object Database"
@@ -1349,4 +1359,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4c53635642b2f1b54b8b65845f0d0054a822a5b889ddb90786ee76eba07c9955"
+content-hash = "dea5f361bb1bad55c2d01acd6ef55ce1b1b28958c80c73a008b3fc98dabf6ec4"

@@ -1,3 +1,4 @@
+from expects import equal, expect
 from streamlit.testing.v1 import AppTest
 
 
@@ -25,7 +26,7 @@ class TestStreamlitApp:
         at = app.run()
         at.button[0].click().run()
 
-        assert at.header[0].value == "Countries"
-        assert at.button[0].label == "Load Countries"
-        assert at.text[0].value == "Country: Argentina, Capital: Buenos Aires"
-        assert at.text[1].value == "Made by @pmareke"
+        expect(at.header[0].value).to(equal("Countries"))
+        expect(at.button[0].label).to(equal("Load Countries"))
+        expect(at.text[0].value).to(equal("Country: Argentina, Capital: Buenos Aires"))
+        expect(at.text[1].value).to(equal("Made by @pmareke"))

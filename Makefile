@@ -43,13 +43,20 @@ check-format:  ## Check format python code
 format:  ## Format python code
 	poetry run ruff format
 
-.PHONY: test
-test: ## Run tests
-	poetry run pytest -n auto tests -ra
+.PHONY: test-unit
+test: ## Run unit tests
+	poetry run pytest -n auto tests/unit -ra
+
+.PHONY: test-integration
+testintegration: ## Run integration tests
+	poetry run pytest -n auto tests/integration -ra
 
 .PHONY: watch
 watch: ## Run all the tests in watch mode
 	poetry run ptw --runner "pytest -n auto tests -ra"
 
 .PHONY: pre-commit
-pre-commit: check-lint check-format check-typing test
+pre-commit: check-lint check-format check-typing test-unit
+
+.PHONY: pre-push
+pre-push: test-integration
