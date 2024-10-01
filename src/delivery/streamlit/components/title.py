@@ -1,5 +1,10 @@
 import streamlit as st
 
 
-def title() -> None:
-    st.title("Hello, world!")
+class Title:
+    def __init__(self) -> None:
+        st.title("Hello, world!")
+
+
+if __name__ == "__main__":
+    Title()

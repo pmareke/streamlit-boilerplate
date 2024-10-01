@@ -1,3 +1,3 @@
-from src.delivery.streamlit.components.title import title
+from src.delivery.streamlit.components.title import Title
 
-title()
+title = Title()
