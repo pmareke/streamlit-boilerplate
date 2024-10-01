@@ -44,11 +44,11 @@ format:  ## Format python code
 	poetry run ruff format
 
 .PHONY: test-unit
-test: ## Run unit tests
+test-unit: ## Run unit tests
 	poetry run pytest -n auto tests/unit -ra
 
 .PHONY: test-integration
-testintegration: ## Run integration tests
+test-integration: ## Run integration tests
 	poetry run pytest -n auto tests/integration -ra
 
 .PHONY: watch
