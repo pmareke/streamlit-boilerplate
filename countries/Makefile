@@ -16,7 +16,7 @@ install: ## Install the app packages
 
 .PHONY: run
 run: ## Runs the app in production mode
-	poetry run streamlit run src/delivery/streamlit/streamlit_app.py
+	poetry run streamlit run src/delivery/streamlit/app.py
 
 .PHONY: check-typing
 check-typing:  ## Run a static analyzer over the code to find issues
