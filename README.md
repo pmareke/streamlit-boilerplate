@@ -1,8 +1,8 @@
-# [Streamlit Boilerplate](https://streamlit.io) ![status](https://github.com/pmareke/streamlit-notes/actions/workflows/app.yml/badge.svg)
+# [Streamlit Boilerplate](https://streamlit.io) ![status](https://github.com/pmareke/streamlit-boilerplate/actions/workflows/app.yml/badge.svg)
 
 - This repository is meant to be used as a fast starter point.
 - The Python version is the 3.12.
-- The project has configured a [Github Action](https://github.com/pmareke/fastapi-boilerplate/actions) which runs on every push to the `main` branch.
+- The project has configured a [Github Action](https://github.com/pmareke/streamlit-boilerplate/actions) which runs on every push to the `main` branch.
 - The project has a `Dockerfile` ready to use to deploy the app in production.
 
 ## Requirements
@@ -14,11 +14,9 @@
     - The `unit` folder contains the unit tests, also know as [F.I.R.S.T](https://dzone.com/articles/writing-your-first-unit-tests#:~:text=First%20class%20developers%20write%20their,self%2Dvalidating%2C%20and%20timely.&text=Unit%20tests%20are%20required%20to%20test%20singular%20sections%20of%20code.).
     - The `integration` folder contains the tests that will validate the connection between our app and the external services.
 - The production code goes inside the `src` folder.
-    - The `delivery` folder contains the `API` logic.
+    - The `delivery` folder contains the `Streamlit` logic.
     - The `domain` folder contains the domain classes of the app.
     - The `infrastructure` folder contains the classes that interact with the external services.
-    - The `use_cases` folder contains the business logic.
-    - The `common` folder contains the shared logic.
 - Inside the `scripts` folder you can find the git hooks files.
 
 ## Project commands
