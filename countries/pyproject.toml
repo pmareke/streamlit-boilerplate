@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "countries"
+version = "0.1.0"
+description = ""
+authors = ["Pedro López Mareque <pedro.lopez.mareque@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+streamlit = "^1.38.0"
+watchdog = "^4.0.0"
+pytest-watch = "^4.2.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+pytest-xdist = "^3.6.1"
+mypy = "^1.11.2"
+ruff = "^0.6.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
