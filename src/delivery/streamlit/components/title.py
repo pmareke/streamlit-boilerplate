@@ -2,10 +2,10 @@ import streamlit as st
 
 
 class Title:
-    def render(self) -> None:
-        st.title("Hello, world!")
+    def render(self, message: str) -> None:
+        st.title(message)
 
 
 if __name__ == "__main__":
     title = Title()
-    title.render()
+    title.render("Hello, world!")

@@ -6,3 +6,4 @@ class TestStreamlitApp:
         at = AppTest.from_file("src/delivery/streamlit/app.py").run()
 
         assert at.title[0].value == "Hello, world!"
+        assert at.title[1].value == "Bye, bye!"
