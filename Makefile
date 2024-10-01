@@ -5,6 +5,11 @@ help:  ## Show this help.
 	@grep -E '^\S+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 
+.PHONY: local-setup
+local-setup: ## Install hooks and packages
+	scripts/local-setup.sh
+	make install
+
 .PHONY: build
 build: ## Generate Docker image
 	docker build -t streamlit .
