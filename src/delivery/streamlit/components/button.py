@@ -8,4 +8,4 @@ class Button:
 
 if __name__ == "__main__":
     button = Button()
-    button.render("Click me!")
+    button.render("any-button")

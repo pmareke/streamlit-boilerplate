@@ -3,7 +3,10 @@ from streamlit.testing.v1 import AppTest
 
 class TestStreamlitApp:
     def test_hello_world(self) -> None:
-        at = AppTest.from_file("src/delivery/streamlit/app.py").run()
+        app = AppTest.from_file("src/delivery/streamlit/app.py")
 
-        assert at.title[0].value == "Hello, world!"
-        assert at.title[1].value == "Bye, bye!"
+        at = app.run()
+
+        assert at.header[0].value == "Countries"
+        assert at.button[0].label == "Load one country"
+        assert at.text[0].value == "Made by @pmareke"

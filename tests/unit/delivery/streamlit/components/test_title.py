@@ -7,4 +7,4 @@ class TestTitleComponent:
 
         at = app.run()
 
-        assert at.title[0].value == "Hello, world!"
+        assert at.title[0].value == "any-title"

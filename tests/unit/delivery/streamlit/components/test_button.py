@@ -7,4 +7,4 @@ class TestButtonComponent:
 
         at = app.run()
 
-        assert at.button[0].label == "Click me!"
+        assert at.button[0].label == "any-button"

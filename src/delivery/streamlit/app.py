@@ -1,11 +1,11 @@
 from src.delivery.streamlit.components.button import Button
-from src.delivery.streamlit.components.title import Title
+from src.delivery.streamlit.components.header import Header
+from src.delivery.streamlit.components.text import Text
 
-title = Title()
+header = Header()
 button = Button()
+text = Text()
 
-title.render("Hello, world!")
-
-button.render("Click me!")
-
-title.render("Bye, bye!")
+header.render("Countries")
+button.render("Load one country")
+text.render("Made by @pmareke")

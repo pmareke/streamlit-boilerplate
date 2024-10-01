@@ -1,11 +1,11 @@
 import streamlit as st
 
 
-class Title:
+class Header:
     def render(self, message: str) -> None:
-        st.title(message)
+        st.header(message)
 
 
 if __name__ == "__main__":
-    title = Title()
-    title.render("any-title")
+    header = Header()
+    header.render("any-header")
