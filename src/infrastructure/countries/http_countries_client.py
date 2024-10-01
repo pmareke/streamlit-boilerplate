@@ -8,12 +8,12 @@ class HttpCountriesClient(CountriesClient):
     def __init__(self) -> None:
         self._req = requests
 
-    def all(self) -> list[Country]:
+    def all(self, limit: int = 10) -> list[Country]:
         url = "https://restcountries.com/v2/all?fields=name,capital,flag"
         response = self._req.get(url)
         content = response.json()
         countries = []
-        for item in content:
+        for item in content[0:limit]:
             name = item["name"]
             flag = item["flag"]
             capital = item.get("capital", "N/A")

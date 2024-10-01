@@ -5,6 +5,6 @@ class TestCountriesClientIntegration:
     def test_get_all_countries(self) -> None:
         countries_client = HttpCountriesClient()
 
-        countries = countries_client.all()
+        countries = countries_client.all(limit=1)
 
-        assert len(countries) > 0
+        assert countries[0].name != ""
