@@ -1,3 +1,5 @@
+import random
+
 import requests
 
 from src.domain.countries_client import CountriesClient
@@ -12,6 +14,7 @@ class HttpCountriesClient(CountriesClient):
         url = "https://restcountries.com/v2/all?fields=name,capital,flag"
         response = self._req.get(url)
         content = response.json()
+        random.shuffle(content)
         countries = []
         for item in content[0:limit]:
             name = item["name"]
