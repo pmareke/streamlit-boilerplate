@@ -19,6 +19,15 @@ install: ## Install the app packages
 	rm -rf poetry.lock
 	poetry install
 
+.PHONY: update
+update: ## Updates the app packages
+	poetry update
+
+.PHONY: add-package
+add-package: ## Installs a new package in the app. ex: make install package=XXX
+	poetry add $(package)
+	poetry install
+
 .PHONY: run
 run: ## Runs the app in production mode
 	PYTHONPATH=. poetry run streamlit run main.py
