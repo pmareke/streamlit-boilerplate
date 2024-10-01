@@ -6,8 +6,16 @@ class TestStreamlitApp:
     def test_hello_world(self) -> None:
         def create_app() -> None:
             from src.delivery.streamlit.app import App
+            from src.infrastructure.countries.dummy_countries_client import (
+                DummyCountriesClient,
+            )
+            from src.use_cases.get_all_countries_query import (
+                GetAllCountriesQueryHandler,
+            )
 
-            app = App()
+            client = DummyCountriesClient()
+            handler = GetAllCountriesQueryHandler(client)
+            app = App(handler)
             app.render()
 
         app = AppTest.from_function(create_app)

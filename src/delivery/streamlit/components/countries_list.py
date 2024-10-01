@@ -1,19 +1,24 @@
 from src.delivery.streamlit.components.button import Button
 from src.delivery.streamlit.components.image import Image
 from src.delivery.streamlit.components.text import Text
-from src.domain.countries_client import CountriesClient
+from src.domain.query import QueryHandler
 from src.infrastructure.countries.dummy_countries_client import DummyCountriesClient
+from src.use_cases.get_all_countries_query import (
+    GetAllCountriesQuery,
+    GetAllCountriesQueryHandler,
+)
 
 
 class CountriesList:
-    def __init__(self, countries_client: CountriesClient) -> None:
-        self.countries_client = countries_client
+    def __init__(self, handler: QueryHandler) -> None:
+        self.handler = handler
         self.button = Button()
 
     def render(self) -> None:
         if self.button.render("Load Countries"):
-            countries = self.countries_client.all(limit=3)
-            for country in countries:
+            query = GetAllCountriesQuery()
+            response = self.handler.execute(query)
+            for country in response.message():
                 text = Text()
                 image = Image()
 
@@ -23,5 +28,6 @@ class CountriesList:
 
 if __name__ == "__main__":
     countries_client = DummyCountriesClient()
-    countries_list = CountriesList(countries_client)
+    get_all_countries_handler = GetAllCountriesQueryHandler(countries_client)
+    countries_list = CountriesList(get_all_countries_handler)
     countries_list.render()
