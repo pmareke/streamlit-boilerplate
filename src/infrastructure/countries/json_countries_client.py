@@ -29,10 +29,8 @@ class JSONCountriesClient(CountriesClient):
         return countries
 
     def _create_country(self, item: dict) -> Country:
-        name = item["name"]
+        name = item["name"]["common"]
         flag = item["flags"]["png"]
-        capitals = item.get("capitals", {})
-        if capitals:
-            capital = capitals[0]
-            return Country(name, capital, flag)
-        return Country(name, "N/A", flag)
+        capitals = item["capital"]
+        capital = capitals[0]
+        return Country(name, capital, flag)

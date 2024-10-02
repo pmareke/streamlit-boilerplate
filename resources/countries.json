@@ -1128,7 +1128,9 @@
         }
       }
     },
-    "capital": [],
+    "capital": [
+      "N/A"
+    ],
     "region": "Antarctic"
   },
   {
@@ -2341,7 +2343,9 @@
       "official": "Antarctica",
       "nativeName": {}
     },
-    "capital": [],
+    "capital": [
+      "N/A"
+    ],
     "region": "Antarctic"
   },
   {
@@ -3097,7 +3101,9 @@
         }
       }
     },
-    "capital": [],
+    "capital": [
+      "N/A"
+    ],
     "region": "Antarctic"
   },
   {
@@ -5153,7 +5159,9 @@
         }
       }
     },
-    "capital": [],
+    "capital": [
+      "N/A"
+    ],
     "region": "Asia"
   },
   {
