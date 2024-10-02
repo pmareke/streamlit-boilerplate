@@ -1,11 +1,11 @@
 from expects import be_none, expect
 
-from src.infrastructure.countries.http_countries_client import HttpCountriesClient
+from src.infrastructure.countries.json_countries_client import JSONCountriesClient
 
 
-class TestCountriesClientIntegration:
+class TestJSONCountriesClientIntegration:
     def test_get_all_countries(self) -> None:
-        countries_client = HttpCountriesClient()
+        countries_client = JSONCountriesClient()
 
         countries = countries_client.all(limit=1)
 
