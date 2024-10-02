@@ -1,7 +1,9 @@
 import streamlit as st
 
+from src.domain.component import Component
 
-class Button:
+
+class Button(Component):
     def render(self, label: str) -> bool:
         return st.button(label=label, type="primary")
 

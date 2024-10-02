@@ -1,7 +1,9 @@
 import streamlit as st
 
+from src.domain.component import Component
 
-class Header:
+
+class Header(Component):
     def render(self, message: str) -> None:
         st.header(message)
 

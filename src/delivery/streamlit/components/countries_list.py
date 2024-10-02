@@ -1,6 +1,7 @@
 from src.delivery.streamlit.components.button import Button
 from src.delivery.streamlit.components.image import Image
 from src.delivery.streamlit.components.text import Text
+from src.domain.component import Component
 from src.domain.query import QueryHandler
 from src.infrastructure.countries.dummy_countries_client import DummyCountriesClient
 from src.use_cases.get_all_countries_query import (
@@ -9,7 +10,7 @@ from src.use_cases.get_all_countries_query import (
 )
 
 
-class CountriesList:
+class CountriesList(Component):
     def __init__(self, handler: QueryHandler) -> None:
         self.handler = handler
         self.button = Button()

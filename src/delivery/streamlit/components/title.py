@@ -1,7 +1,9 @@
 import streamlit as st
 
+from src.domain.component import Component
 
-class Title:
+
+class Title(Component):
     def render(self, message: str) -> None:
         st.title(message)
 

@@ -1,7 +1,9 @@
 import streamlit as st
 
+from src.domain.component import Component
 
-class Image:
+
+class Image(Component):
     def render(self, url: str, width: int) -> None:
         st.image(image=url, width=width)
 
