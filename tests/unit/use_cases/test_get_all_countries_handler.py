@@ -9,7 +9,7 @@ from src.use_cases.get_all_countries_query import (
 
 class TestGetAllCountriesQueryHandler:
     def test_get_all(self) -> None:
-        query = GetAllCountriesQuery()
+        query = GetAllCountriesQuery(limit=1)
         client = DummyCountriesClient()
         handler = GetAllCountriesQueryHandler(client)
 

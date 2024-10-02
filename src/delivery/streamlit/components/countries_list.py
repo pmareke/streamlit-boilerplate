@@ -17,7 +17,7 @@ class CountriesList(Component):
 
     def render(self) -> None:
         if self.button.render("Load Countries"):
-            query = GetAllCountriesQuery()
+            query = GetAllCountriesQuery(limit=3)
             response = self.handler.execute(query)
             for country in response.message():
                 text = Text()

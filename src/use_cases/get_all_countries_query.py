@@ -4,7 +4,8 @@ from src.domain.query import Query, QueryHandler, QueryResponse
 
 
 class GetAllCountriesQuery(Query):
-    def __init__(self) -> None:
+    def __init__(self, limit: int) -> None:
+        self.limit = limit
         super().__init__()
 
 
@@ -21,6 +22,6 @@ class GetAllCountriesQueryHandler(QueryHandler):
         self._countries_client = countries_client
 
     def execute(self, query: GetAllCountriesQuery) -> GetAllCountriesQueryResponse:
-        countries = self._countries_client.all()
+        countries = self._countries_client.all(limit=query.limit)
         response = GetAllCountriesQueryResponse(countries)
         return response
