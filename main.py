@@ -4,6 +4,6 @@ from src.use_cases.get_all_countries_query import GetAllCountriesQueryHandler
 
 countries_client = HttpCountriesClient()
 get_all_countries_handler = GetAllCountriesQueryHandler(countries_client)
-app = App(get_all_countries_handler)
+app = App()
 
-app.render()
+app.render(get_all_countries_handler)

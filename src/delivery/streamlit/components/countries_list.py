@@ -11,14 +11,13 @@ from src.use_cases.get_all_countries_query import (
 
 
 class CountriesList(Component):
-    def __init__(self, handler: QueryHandler) -> None:
-        self.handler = handler
+    def __init__(self) -> None:
         self.button = Button()
 
-    def render(self) -> None:
+    def render(self, handler: QueryHandler) -> None:
         if self.button.render("Load Countries"):
             query = GetAllCountriesQuery(limit=3)
-            response = self.handler.execute(query)
+            response = handler.execute(query)
             for country in response.message():
                 text = Text()
                 image = Image()
@@ -30,5 +29,5 @@ class CountriesList(Component):
 if __name__ == "__main__":
     countries_client = DummyCountriesClient()
     get_all_countries_handler = GetAllCountriesQueryHandler(countries_client)
-    countries_list = CountriesList(get_all_countries_handler)
-    countries_list.render()
+    countries_list = CountriesList()
+    countries_list.render(get_all_countries_handler)

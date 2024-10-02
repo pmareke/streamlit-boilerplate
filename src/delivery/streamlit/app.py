@@ -6,15 +6,12 @@ from src.domain.query import QueryHandler
 
 
 class App(Component):
-    def __init__(self, get_all_countries_handler: QueryHandler) -> None:
-        self.get_all_countries_handler = get_all_countries_handler
+    def __init__(self) -> None:
         self.header = Header()
-        self.countries_list = CountriesList(self.get_all_countries_handler)
+        self.countries_list = CountriesList()
         self.text = Text()
 
-    def render(self) -> None:
+    def render(self, handler: QueryHandler) -> None:
         self.header.render("Countries")
-
-        self.countries_list.render()
-
+        self.countries_list.render(handler)
         self.text.render("Made by @pmareke")

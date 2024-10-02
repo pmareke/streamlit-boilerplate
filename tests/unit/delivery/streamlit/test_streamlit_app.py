@@ -15,8 +15,8 @@ class TestStreamlitApp:
 
             client = DummyCountriesClient()
             handler = GetAllCountriesQueryHandler(client)
-            app = App(handler)
-            app.render()
+            app = App()
+            app.render(handler)
 
         app = AppTest.from_function(create_app)
 
