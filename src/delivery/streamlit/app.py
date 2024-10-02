@@ -7,13 +7,13 @@ from src.domain.query import QueryHandler
 class App:
     def __init__(self, get_all_countries_handler: QueryHandler) -> None:
         self.get_all_countries_handler = get_all_countries_handler
+        self.header = Header()
+        self.countries_list = CountriesList(self.get_all_countries_handler)
+        self.text = Text()
 
     def render(self) -> None:
-        header = Header()
-        header.render("Countries")
+        self.header.render("Countries")
 
-        countries_list = CountriesList(self.get_all_countries_handler)
-        countries_list.render()
+        self.countries_list.render()
 
-        text = Text()
-        text.render("Made by @pmareke")
+        self.text.render("Made by @pmareke")
