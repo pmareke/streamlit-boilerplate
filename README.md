@@ -7,7 +7,7 @@
 
 ## Requirements
 
-- You only need to have [Poetry](https://python-poetry.org) installed.
+- You only need to have [uv](https://docs.astral.sh/uv/) installed.
 
 ## Folder structure
 
@@ -27,11 +27,13 @@ The project uses [Makefiles](https://www.gnu.org/software/make/manual/html_node/
 
 - `add-package package=XXX`: Installs the package XXX in the app, ex: `make install package=requests`.
 - `build` : Builds the app using the Dockerfile.
-- `check-typing`: Runs a static analyzer over the code in order to find issues.
+- `check-lint`: Checks the code style.
 - `check-format`: Checks the code format.
+- `check-typing`: Runs a static analyzer over the code in order to find issues.
 - `coverage` : Generates the coverage report.
 - `dev`: Runs the app in development mode.
 - `format`: Formats the code.
+- `lint`: Lints the code.
 - `help` : Shows this help.
 - `install`: Installs the app packages.
 - `local-setup`: Sets up the local environment (e.g. install git hooks).
@@ -46,7 +48,7 @@ _In order to create a commit you have to pass the pre-commit phase which runs th
 
 ## Packages
 
-This project uses [Poetry](https://python-poetry.org) as the package manager.
+This project uses [uv](https://docs.astral.sh/uv/) as the package manager.
 
 ### Testing
 
