@@ -11,14 +11,14 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /code
 
-RUN pip install poetry
+RUN pip install uv
 
 COPY pyproject.toml /code
 
-RUN poetry install --without test
+RUN uv sync
 
 COPY . /code
 
 EXPOSE 8501
 
-ENTRYPOINT ["poetry", "run", "streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["uv", "run", "streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
