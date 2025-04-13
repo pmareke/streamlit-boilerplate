@@ -1,0 +1,9 @@
+[client]
+showSidebarNavigation = false
+toolbarMode = "minimal"
+
+[runner]
+fastReruns = true
+
+[server]
+runOnSave = true
