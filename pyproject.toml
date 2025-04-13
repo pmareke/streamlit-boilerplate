@@ -23,3 +23,7 @@ test = [
 
 [tool.uv]
 default-groups = ["test"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
