@@ -111,43 +111,6 @@ wheels = [
 ]
 
 [[package]]
-name = "countries"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "requests" },
-    { name = "streamlit" },
-    { name = "watchdog" },
-]
-
-[package.dev-dependencies]
-test = [
-    { name = "expects" },
-    { name = "mypy" },
-    { name = "pytest" },
-    { name = "pytest-watch" },
-    { name = "pytest-xdist" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "requests", specifier = ">=2.32.3,<3" },
-    { name = "streamlit", specifier = ">=1.38.0,<2" },
-    { name = "watchdog", specifier = ">=4.0.0,<5" },
-]
-
-[package.metadata.requires-dev]
-test = [
-    { name = "expects", specifier = ">=0.9.0,<0.10" },
-    { name = "mypy", specifier = ">=1.11.2,<2" },
-    { name = "pytest", specifier = ">=8.3.3,<9" },
-    { name = "pytest-watch", specifier = ">=4.2.0,<5" },
-    { name = "pytest-xdist", specifier = ">=3.6.1,<4" },
-    { name = "ruff", specifier = ">=0.6.8,<0.7" },
-]
-
-[[package]]
 name = "docopt"
 version = "0.6.2"
 source = { registry = "https://pypi.org/simple" }
@@ -723,6 +686,43 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3e/c0/7286284567e5045f0c587c426d0c41aee5d10c0a2e360e627a83037e9f0c/streamlit-1.44.1.tar.gz", hash = "sha256:c6914ed6d5b76870b461510476806db370f36425ae0e6654d227c988288198d3", size = 9423685 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/eb/17/fc425e1d4d86e31b2aaf0812a2ef2163763a0670d671720c7c36e8679323/streamlit-1.44.1-py3-none-any.whl", hash = "sha256:9fe355f58b11f4eb71e74f115ce1f38c4c9eaff2733e6bcffb510ac1298a5990", size = 9812242 },
+]
+
+[[package]]
+name = "streamlit-boilerplate"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "requests" },
+    { name = "streamlit" },
+    { name = "watchdog" },
+]
+
+[package.dev-dependencies]
+test = [
+    { name = "expects" },
+    { name = "mypy" },
+    { name = "pytest" },
+    { name = "pytest-watch" },
+    { name = "pytest-xdist" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "requests", specifier = ">=2.32.3,<3" },
+    { name = "streamlit", specifier = ">=1.38.0,<2" },
+    { name = "watchdog", specifier = ">=4.0.0,<5" },
+]
+
+[package.metadata.requires-dev]
+test = [
+    { name = "expects", specifier = ">=0.9.0,<0.10" },
+    { name = "mypy", specifier = ">=1.11.2,<2" },
+    { name = "pytest", specifier = ">=8.3.3,<9" },
+    { name = "pytest-watch", specifier = ">=4.2.0,<5" },
+    { name = "pytest-xdist", specifier = ">=3.6.1,<4" },
+    { name = "ruff", specifier = ">=0.6.8,<0.7" },
 ]
 
 [[package]]

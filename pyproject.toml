@@ -1,7 +1,7 @@
 [project]
-name = "countries"
+name = "streamlit-boilerplate"
 version = "0.1.0"
-description = ""
+description = "This repository is a Streamlit boilerplate to be used as a fast starter point"
 authors = [{ name = "Pedro López Mareque", email = "pedro.lopez.mareque@gmail.com" }]
 requires-python = "~=3.12"
 readme = "README.md"
