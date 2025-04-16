@@ -7,3 +7,6 @@ fastReruns = true
 
 [server]
 runOnSave = true
+
+ [browser]
+ gatherUsageStats = false

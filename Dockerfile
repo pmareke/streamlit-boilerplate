@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12.8-slim
 
 ENV PYTHONPATH=.
 
@@ -13,12 +13,20 @@ WORKDIR /code
 
 RUN pip install uv
 
+RUN uv python pin 3.12.8
+
 COPY pyproject.toml /code
 
-RUN uv sync
+RUN uv sync --no-group test
 
-COPY . /code
+COPY main.py /code/main.py
+
+COPY resources /code/resources
+
+COPY src /code/src
+
+COPY .streamlit /code/.streamlit
 
 EXPOSE 8501
 
-ENTRYPOINT ["uv", "run", "streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["uv", "run", "streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]

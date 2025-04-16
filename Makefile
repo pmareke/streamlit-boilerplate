@@ -17,6 +17,10 @@ local-setup: pre-requirements ## Install hooks and packages
 build: pre-requirements ## Generate Docker image
 	docker build -t streamlit .
 
+.PHONY: up
+up: pre-requirements build ## Generate Docker image
+	docker run -p 8501:8501 streamlit
+
 .PHONY: install
 install: pre-requirements ## Install the app packages
 	uv python install 3.12.8
