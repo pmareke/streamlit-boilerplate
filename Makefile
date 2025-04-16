@@ -18,7 +18,7 @@ build: pre-requirements ## Generate Docker image
 	docker build -t streamlit .
 
 .PHONY: up
-up: pre-requirements build ## Generate Docker image
+up: pre-requirements build ## Run the app inside docker
 	docker run -p 8501:8501 streamlit
 
 .PHONY: install
