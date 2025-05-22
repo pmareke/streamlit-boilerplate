@@ -64,18 +64,18 @@ checks: pre-requirements check-lint check-format check-typing  ## Run all checks
 
 .PHONY: test-unit
 test-unit: pre-requirements ## Run unit tests
-	uv run pytest -n auto tests/unit -ra -x --durations=5
+	uv run pytest tests/unit -ra -x --durations=5
 
 .PHONY: test-integration
 test-integration: pre-requirements ## Run integration tests
-	uv run pytest -n auto tests/integration -ra -x --durations=5
+	uv run pytest tests/integration -ra -x --durations=5
 
 .PHONY: test
 test: test-unit test-integration ## Run all the tests
 
 .PHONY: watch
 watch: pre-requirements ## Run all the tests in watch mode
-	uv run ptw --runner "pytest -n auto tests -ra -x --durations=5"
+	uv run ptw --runner "pytest tests -ra -x --durations=5"
 
 .PHONY: pre-commit
 pre-commit: pre-requirements check-lint check-format check-typing test-unit
