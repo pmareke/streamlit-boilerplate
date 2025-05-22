@@ -10,7 +10,7 @@ class Query:
 
 class QueryResponse(ABC):
     @abstractmethod
-    def message(self) -> Any:
+    def message(self) -> Any:  # noqa ANN401
         raise NotImplementedError()
 
 
