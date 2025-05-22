@@ -11,10 +11,10 @@ class Query:
 class QueryResponse(ABC):
     @abstractmethod
     def message(self) -> Any:  # noqa ANN401
-        raise NotImplementedError()
+        raise NotImplementedError
 
 
 class QueryHandler(ABC):
     @abstractmethod
     def execute(self, query: Query) -> QueryResponse:
-        raise NotImplementedError()
+        raise NotImplementedError

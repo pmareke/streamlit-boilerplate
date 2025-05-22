@@ -23,5 +23,4 @@ class GetAllCountriesQueryHandler(QueryHandler):
 
     def execute(self, query: GetAllCountriesQuery) -> GetAllCountriesQueryResponse:
         countries = self._countries_client.all(limit=query.limit)
-        response = GetAllCountriesQueryResponse(countries)
-        return response
+        return GetAllCountriesQueryResponse(countries)
