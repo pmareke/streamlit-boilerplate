@@ -1,32 +1,34 @@
 FROM python:3.12.8-slim
 
+ENV PATH="/code/.venv/bin:$PATH"
+
 ENV PYTHONPATH=.
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    software-properties-common \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /code
 
-RUN pip install uv
-
 RUN uv python pin 3.12.8
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-install-project --no-group test
 
 COPY pyproject.toml /code
 
-RUN uv sync --no-group test
+COPY uv.lock /code/uv.lock
 
 COPY main.py /code/main.py
 
 COPY resources /code/resources
 
+COPY .streamlit /code/.streamlit
+
 COPY src /code/src
 
-COPY .streamlit /code/.streamlit
+RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked --no-group test
 
 EXPOSE 8501
 
-CMD ["uv", "run", "streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
