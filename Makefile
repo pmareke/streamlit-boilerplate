@@ -15,11 +15,11 @@ local-setup: pre-requirements ## Install hooks and packages
 
 .PHONY: build
 build: pre-requirements ## Generate Docker image
-	docker build -t streamlit .
+	docker build -t streamlit-boilerplate .
 
 .PHONY: up
 up: pre-requirements build ## Run the app inside docker
-	docker run -p 8501:8501 streamlit
+	docker run -p 8501:8501 streamlit-boilerplate
 
 .PHONY: install
 install: pre-requirements ## Install the app packages

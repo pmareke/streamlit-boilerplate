@@ -13,7 +13,7 @@ RUN uv python pin 3.12.8
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --locked --no-install-project --no-group test
+    uv sync --locked --no-install-project --no-group dev
 
 COPY pyproject.toml /code
 
@@ -27,7 +27,7 @@ COPY .streamlit /code/.streamlit
 
 COPY src /code/src
 
-RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked --no-group test
+RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked --no-group dev
 
 EXPOSE 8501
 
