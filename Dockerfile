@@ -1,8 +1,8 @@
-FROM python:3.12.8-slim
+#######################################
+#             BUILDER                 #
+#######################################
 
-ENV PATH="/code/.venv/bin:$PATH"
-
-ENV PYTHONPATH=.
+FROM python:3.12.8-slim AS builder
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
@@ -15,9 +15,15 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --locked --no-install-project --no-group dev
 
-COPY pyproject.toml /code
+#######################################
+#             RUNTIME                 #
+#######################################
 
-COPY uv.lock /code/uv.lock
+FROM python:3.12.8-slim
+
+ENV PATH="/code/.venv/bin:$PATH"
+
+WORKDIR /code
 
 COPY main.py /code/main.py
 
@@ -27,8 +33,8 @@ COPY .streamlit /code/.streamlit
 
 COPY src /code/src
 
-RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked --no-group dev
+COPY --from=builder /code/.venv /code/.venv
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
